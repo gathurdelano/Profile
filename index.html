@@ -380,6 +380,60 @@
             padding-left: 24px;
         }
         
+        .content-list {
+            list-style-type: none;
+        }
+        
+        .content-item {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 8px;
+        }
+        
+        .content-item:hover {
+            background-color: #f8f8f8;
+        }
+        
+        .content-item:last-child {
+            border-bottom: none;
+        }
+        
+        .content-item-title {
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        .content-item-link {
+            color: #000;
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 15px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .content-item-link:hover, .content-item-link:active {
+            background-color: #000;
+            color: #fff;
+            transform: scale(0.95);
+        }
+        
+        .content-item-type {
+            font-size: 13px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .content-item-year {
+            font-size: 13px;
+            color: #888;
+        }
+        
         footer {
             text-align: center;
             padding: 30px 20px;
@@ -411,6 +465,16 @@
             .music-link {
                 align-self: flex-end;
             }
+            
+            .content-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .content-item-link {
+                align-self: flex-end;
+            }
         }
         
         /* Animations */
@@ -424,11 +488,11 @@
         }
         
         /* Efek untuk semua elemen interaktif */
-        button, .nav-btn, .music-link {
+        button, .nav-btn, .music-link, .content-item-link {
             transition: transform 0.1s ease, background-color 0.2s ease;
         }
         
-        button:active, .nav-btn:active, .music-link:active {
+        button:active, .nav-btn:active, .music-link:active, .content-item-link:active {
             transform: scale(0.95);
         }
     </style>
@@ -465,6 +529,7 @@
     
     <div class="navigation-buttons">
         <a href="#" class="nav-btn active" data-target="profile">Profile</a>
+        <a href="#" class="nav-btn" data-target="archive">Archive</a>
         <a href="#" class="nav-btn" data-target="storyline">Storyline</a>
         <a href="#" class="nav-btn" data-target="gallery">Gallery</a>
         <a href="#" class="nav-btn" data-target="trivia">Trivia</a>
@@ -507,6 +572,79 @@
                     <div class="bio-description">Born and raised in London, originally from London</div>
                 </div>
             </div>
+        </div>
+    </section>
+    
+    <!-- ARCHIVE SECTION -->
+    <section id="archive" class="content-section">
+        <h2 class="section-title"><i class="fas fa-archive"></i> Published Works</h2>
+        
+        <div class="content-section">
+            <h3 class="section-title" style="font-size: 18px; border-bottom: none; margin-bottom: 15px;"><i class="fas fa-book-open"></i> Published Books</h3>
+            <ul class="content-list">
+                <li class="content-item">
+                    <div>
+                        <div class="content-item-title">Hide and Lies : The Man Behind Delanosa</div>
+                        <div class="content-item-type">Psychological Thriller Novel</div>
+                    </div>
+                    <div class="content-item-year">2018</div>
+                </li>
+                <li class="content-item">
+                    <div>
+                        <div class="content-item-title">The Anthology of Jane</div>
+                        <div class="content-item-type">Short Story Collection</div>
+                    </div>
+                    <div class="content-item-year">2020</div>
+                </li>
+                <li class="content-item">
+                    <div>
+                        <div class="content-item-title">The Hidden Story Vol.1</div>
+                        <div class="content-item-type">Collaboration Anthology</div>
+                    </div>
+                    <div class="content-item-year">2021</div>
+                </li>
+                <li class="content-item">
+                    <div>
+                        <div class="content-item-title">The Last Order : Rowan</div>
+                        <div class="content-item-type">Dark Fantasy Series Novel</div>
+                    </div>
+                    <div class="content-item-year">2023</div>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="content-section" style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e0e0e0;">
+            <h3 class="section-title" style="font-size: 18px; border-bottom: none; margin-bottom: 15px;"><i class="fas fa-pen-fancy"></i> Short Stories on Twitter</h3>
+            <ul class="content-list">
+                <li class="content-item">
+                    <div>
+                        <div class="content-item-title">The Scandalous</div>
+                        <div class="content-item-type">Drama Short Story</div>
+                    </div>
+                    <a href="https://x.com/i/status/1997873274479681599" class="content-item-link" target="_blank">Read</a>
+                </li>
+                <li class="content-item">
+                    <div>
+                        <div class="content-item-title">Retak : Perdebatan Malam Itu</div>
+                        <div class="content-item-type">Family Short Story</div>
+                    </div>
+                    <a href="https://x.com/i/status/2000169761188278714" class="content-item-link" target="_blank">Read</a>
+                </li>
+                <li class="content-item">
+                    <div>
+                        <div class="content-item-title">High by the Beach feat Cindy Lou</div>
+                        <div class="content-item-type">Romantic Short Story</div>
+                    </div>
+                    <a href="https://x.com/i/status/1999453298886344899" class="content-item-link" target="_blank">Read</a>
+                </li>
+                <li class="content-item">
+                    <div>
+                        <div class="content-item-title">Blind Date Kok Sama Mantan?!</div>
+                        <div class="content-item-type">Comedy Short Story</div>
+                    </div>
+                    <a href="https://x.com/i/status/1999881119840481467" class="content-item-link" target="_blank">Read</a>
+                </li>
+            </ul>
         </div>
     </section>
     
@@ -692,7 +830,7 @@
         });
         
         // Hover effects for interactive elements
-        document.querySelectorAll('button, .nav-btn, .music-link').forEach(el => {
+        document.querySelectorAll('button, .nav-btn, .music-link, .content-item-link').forEach(el => {
             el.addEventListener('touchstart', function() {
                 this.style.transform = 'scale(0.95)';
             });
