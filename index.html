@@ -88,37 +88,6 @@
             font-weight: 500;
         }
         
-        .stats-container {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 20px 0;
-            padding: 15px;
-            background-color: #f8f8f8;
-            border-radius: 15px;
-            width: 90%;
-            border: 1px solid #e0e0e0;
-        }
-        
-        .stats-container:hover {
-            background-color: #f0f0f0;
-        }
-        
-        .stat-item {
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 22px;
-            font-weight: 700;
-        }
-        
-        .stat-label {
-            font-size: 13px;
-            color: #666;
-            margin-top: 5px;
-        }
-        
         .content-section {
             background-color: #fff;
             margin: 15px;
@@ -164,7 +133,7 @@
         .bio-item {
             display: flex;
             align-items: flex-start;
-            padding: 8px;
+            padding: 12px;
             border-radius: 8px;
         }
         
@@ -174,30 +143,42 @@
         
         .bio-icon {
             width: 24px;
-            margin-right: 12px;
+            min-width: 24px;
+            margin-right: 15px;
             color: #333;
             margin-top: 2px;
         }
         
         .bio-text {
             flex: 1;
+            overflow: hidden;
         }
         
         .bio-title {
             font-weight: 600;
-            margin-bottom: 3px;
+            margin-bottom: 5px;
+            font-size: 16px;
         }
         
         .bio-description {
             color: #666;
             font-size: 14px;
+            line-height: 1.5;
         }
         
         .navigation-buttons {
             display: flex;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
             margin: 20px 15px;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            padding: 5px 0;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .navigation-buttons::-webkit-scrollbar {
+            display: none;
         }
         
         .nav-btn {
@@ -205,13 +186,14 @@
             color: #000;
             border: 1px solid #e0e0e0;
             border-radius: 25px;
-            padding: 12px 25px;
-            font-size: 15px;
+            padding: 12px 20px;
+            font-size: 14px;
             font-weight: 500;
             cursor: pointer;
             text-decoration: none;
             text-align: center;
-            flex: 1;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
         
         .nav-btn.active {
@@ -229,7 +211,7 @@
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
+            gap: 12px;
             margin-top: 10px;
         }
         
@@ -242,6 +224,8 @@
             justify-content: center;
             overflow: hidden;
             border: 1px solid #e0e0e0;
+            background-size: cover;
+            background-position: center;
         }
         
         .gallery-item:hover {
@@ -249,16 +233,28 @@
             background-color: #f0f0f0;
         }
         
-        .gallery-placeholder {
-            text-align: center;
-            color: #666;
-            padding: 20px;
+        .gallery-item.foto1 {
+            background-color: #2c3e50;
         }
         
-        .gallery-placeholder i {
-            font-size: 30px;
-            margin-bottom: 10px;
-            display: block;
+        .gallery-item.foto2 {
+            background-color: #34495e;
+        }
+        
+        .gallery-item.foto3 {
+            background-color: #7f8c8d;
+        }
+        
+        .gallery-item.foto4 {
+            background-color: #95a5a6;
+        }
+        
+        .gallery-item.foto5 {
+            background-color: #bdc3c7;
+        }
+        
+        .gallery-item.foto6 {
+            background-color: #ecf0f1;
         }
         
         .trivia-item {
@@ -279,11 +275,13 @@
             font-weight: 600;
             margin-bottom: 8px;
             color: #000;
+            font-size: 16px;
         }
         
         .trivia-answer {
             color: #666;
-            font-size: 15px;
+            font-size: 14px;
+            line-height: 1.5;
         }
         
         .music-item {
@@ -296,7 +294,6 @@
         
         .music-item:hover {
             background-color: #f8f8f8;
-            transform: translateX(5px);
         }
         
         .music-item:last-child {
@@ -304,8 +301,9 @@
         }
         
         .music-icon {
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
+            min-width: 45px;
             background: linear-gradient(135deg, #1DB954, #1ED760);
             border-radius: 8px;
             margin-right: 15px;
@@ -318,27 +316,39 @@
         
         .music-info {
             flex: 1;
+            min-width: 0;
+            overflow: hidden;
         }
         
         .music-title {
             font-weight: 600;
             margin-bottom: 3px;
             color: #000;
+            font-size: 15px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         
         .music-artist {
             color: #666;
-            font-size: 14px;
+            font-size: 13px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         
         .music-link {
             color: #000;
             text-decoration: none;
-            padding: 6px 12px;
+            padding: 8px 15px;
             border-radius: 15px;
             background-color: #f0f0f0;
             border: 1px solid #ddd;
             font-size: 14px;
+            font-weight: 500;
+            white-space: nowrap;
+            margin-left: 10px;
         }
         
         .music-link:hover, .music-link:active {
@@ -347,37 +357,19 @@
             transform: scale(0.95);
         }
         
-        .storyline-item {
-            padding: 15px;
-            border-bottom: 1px solid #e0e0e0;
-            border-radius: 8px;
-        }
-        
-        .storyline-item:hover {
-            background-color: #f8f8f8;
-        }
-        
-        .storyline-item:last-child {
-            border-bottom: none;
-        }
-        
-        .storyline-year {
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #000;
-            display: flex;
-            align-items: center;
-        }
-        
-        .storyline-year i {
-            margin-right: 8px;
-            color: #333;
-        }
-        
         .storyline-content {
             color: #666;
-            font-size: 15px;
-            padding-left: 24px;
+            font-size: 14px;
+            line-height: 1.7;
+            text-align: justify;
+        }
+        
+        .storyline-content p {
+            margin-bottom: 20px;
+        }
+        
+        .storyline-content p:last-child {
+            margin-bottom: 0;
         }
         
         .content-list {
@@ -389,8 +381,9 @@
             border-bottom: 1px solid #e0e0e0;
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             border-radius: 8px;
+            flex-direction: column;
         }
         
         .content-item:hover {
@@ -401,37 +394,49 @@
             border-bottom: none;
         }
         
+        .content-item-info {
+            flex: 1;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        
         .content-item-title {
             font-size: 16px;
             font-weight: 500;
+            margin-bottom: 5px;
+            line-height: 1.4;
         }
         
         .content-item-link {
             color: #000;
             text-decoration: none;
-            padding: 6px 12px;
+            padding: 10px 20px;
             border-radius: 15px;
             background-color: #f0f0f0;
             border: 1px solid #ddd;
             font-size: 14px;
             font-weight: 500;
+            width: 100%;
+            text-align: center;
+            display: block;
         }
         
         .content-item-link:hover, .content-item-link:active {
             background-color: #000;
             color: #fff;
-            transform: scale(0.95);
+            transform: scale(0.98);
         }
         
         .content-item-type {
             font-size: 13px;
             color: #666;
-            margin-top: 5px;
+            margin-bottom: 5px;
         }
         
         .content-item-year {
             font-size: 13px;
             color: #888;
+            margin-bottom: 10px;
         }
         
         footer {
@@ -443,37 +448,124 @@
             margin-top: 20px;
         }
         
+        /* Mobile optimizations */
         @media (max-width: 500px) {
             body {
                 padding-bottom: 10px;
             }
             
-            .gallery-grid {
-                grid-template-columns: 1fr;
+            header {
+                padding: 25px 15px 15px;
             }
             
-            .stats-container {
-                width: 95%;
+            .profile-name {
+                font-size: 24px;
+            }
+            
+            .profile-tagline {
+                font-size: 15px;
+                margin-bottom: 15px;
+            }
+            
+            .content-section {
+                margin: 10px;
+                padding: 15px;
+                border-radius: 12px;
+            }
+            
+            .section-title {
+                font-size: 18px;
+                margin-bottom: 15px;
+            }
+            
+            .navigation-buttons {
+                margin: 15px 10px;
+                gap: 6px;
+            }
+            
+            .nav-btn {
+                padding: 10px 16px;
+                font-size: 13px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            
+            .trivia-item, .music-item, .content-item, .bio-item {
+                padding: 12px;
+            }
+            
+            .bio-title {
+                font-size: 15px;
+            }
+            
+            .bio-description, .trivia-answer, .storyline-content {
+                font-size: 13px;
+            }
+            
+            .music-link {
+                padding: 8px 12px;
+                font-size: 13px;
+                margin-left: 0;
+                margin-top: 10px;
             }
             
             .music-item {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
+                flex-wrap: wrap;
+            }
+            
+            .music-info {
+                margin-bottom: 5px;
             }
             
             .music-link {
                 align-self: flex-end;
             }
             
-            .content-item {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
+            .content-item-link {
+                padding: 10px 15px;
+                font-size: 13px;
             }
             
-            .content-item-link {
-                align-self: flex-end;
+            footer {
+                padding: 20px 15px;
+                font-size: 13px;
+            }
+            
+            .storyline-content {
+                font-size: 13px;
+                line-height: 1.6;
+                text-align: left;
+            }
+        }
+        
+        /* Small mobile */
+        @media (max-width: 360px) {
+            .profile-name {
+                font-size: 22px;
+            }
+            
+            .profile-tagline {
+                font-size: 14px;
+            }
+            
+            .nav-btn {
+                padding: 8px 12px;
+                font-size: 12px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 17px;
+            }
+            
+            .storyline-content {
+                font-size: 12px;
             }
         }
         
@@ -495,6 +587,12 @@
         button:active, .nav-btn:active, .music-link:active, .content-item-link:active {
             transform: scale(0.95);
         }
+        
+        /* Touch improvements */
+        .nav-btn, .music-link, .content-item-link {
+            user-select: none;
+            -webkit-user-select: none;
+        }
     </style>
 </head>
 <body>
@@ -509,21 +607,6 @@
                 <a href="https://x.com/@gaxlak" target="_blank">@gaxlak <i class="fab fa-twitter"></i></a>
             </div>
             <p class="profile-tagline">Writer & Publisher | Director of The Kachoo</p>
-            
-            <div class="stats-container">
-                <div class="stat-item">
-                    <div class="stat-number">12</div>
-                    <div class="stat-label">Years Writing</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">∞</div>
-                    <div class="stat-label">Dark Ideas</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">34</div>
-                    <div class="stat-label">Age</div>
-                </div>
-            </div>
         </div>
     </header>
     
@@ -583,65 +666,65 @@
         <h3 class="section-title" style="font-size: 18px; border-bottom: none; margin-bottom: 15px;"><i class="fas fa-book-open"></i> Published Books</h3>
         <ul class="content-list">
             <li class="content-item">
-                <div>
+                <div class="content-item-info">
                     <div class="content-item-title">Hide and Lies : The Man Behind Delanosa</div>
                     <div class="content-item-type">Psychological Thriller Novel</div>
+                    <div class="content-item-year">2018</div>
                 </div>
-                <div class="content-item-year">2018</div>
             </li>
             <li class="content-item">
-                <div>
+                <div class="content-item-info">
                     <div class="content-item-title">The Anthology of Jane</div>
                     <div class="content-item-type">Short Story Collection</div>
+                    <div class="content-item-year">2020</div>
                 </div>
-                <div class="content-item-year">2020</div>
             </li>
             <li class="content-item">
-                <div>
+                <div class="content-item-info">
                     <div class="content-item-title">The Hidden Story Vol.1</div>
                     <div class="content-item-type">Collaboration Anthology</div>
+                    <div class="content-item-year">2021</div>
                 </div>
-                <div class="content-item-year">2021</div>
             </li>
             <li class="content-item">
-                <div>
+                <div class="content-item-info">
                     <div class="content-item-title">The Last Order : Rowan</div>
                     <div class="content-item-type">Dark Fantasy Series Novel</div>
+                    <div class="content-item-year">2023</div>
                 </div>
-                <div class="content-item-year">2023</div>
             </li>
         </ul>
         
         <!-- Short Stories -->
-        <h3 class="section-title" style="font-size: 18px; border-bottom: none; margin-top: 30px; margin-bottom: 15px;"><i class="fas fa-pen-fancy"></i> Short Stories</h3>
+        <h3 class="section-title" style="font-size: 18px; border-bottom: none; margin-top: 25px; margin-bottom: 15px;"><i class="fas fa-pen-fancy"></i> Short Stories</h3>
         <ul class="content-list">
             <li class="content-item">
-                <div>
+                <div class="content-item-info">
                     <div class="content-item-title">The Scandalous</div>
                     <div class="content-item-type">Drama Short Story</div>
                 </div>
-                <a href="https://x.com/i/status/1997873274479681599" class="content-item-link" target="_blank">Read</a>
+                <a href="https://x.com/i/status/1997873274479681599" class="content-item-link" target="_blank">Read on Twitter</a>
             </li>
             <li class="content-item">
-                <div>
+                <div class="content-item-info">
                     <div class="content-item-title">Retak : Perdebatan Malam Itu</div>
                     <div class="content-item-type">Family Short Story</div>
                 </div>
-                <a href="https://x.com/i/status/2000169761188278714" class="content-item-link" target="_blank">Read</a>
+                <a href="https://x.com/i/status/2000169761188278714" class="content-item-link" target="_blank">Read on Twitter</a>
             </li>
             <li class="content-item">
-                <div>
+                <div class="content-item-info">
                     <div class="content-item-title">High by the Beach feat Cindy Lou</div>
                     <div class="content-item-type">Romantic Short Story</div>
                 </div>
-                <a href="https://x.com/i/status/1999453298886344899" class="content-item-link" target="_blank">Read</a>
+                <a href="https://x.com/i/status/1999453298886344899" class="content-item-link" target="_blank">Read on Twitter</a>
             </li>
             <li class="content-item">
-                <div>
+                <div class="content-item-info">
                     <div class="content-item-title">Blind Date Kok Sama Mantan?!</div>
                     <div class="content-item-type">Comedy Short Story</div>
                 </div>
-                <a href="https://x.com/i/status/1999881119840481467" class="content-item-link" target="_blank">Read</a>
+                <a href="https://x.com/i/status/1999881119840481467" class="content-item-link" target="_blank">Read on Twitter</a>
             </li>
         </ul>
     </section>
@@ -650,74 +733,34 @@
     <section id="storyline" class="content-section">
         <h2 class="section-title"><i class="fas fa-timeline"></i> Storyline</h2>
         
-        <div class="storyline-item">
-            <div class="storyline-year"><i class="fas fa-calendar"></i> 2012</div>
-            <div class="storyline-content">Published first short story collection while studying literature at University of London</div>
-        </div>
-        
-        <div class="storyline-item">
-            <div class="storyline-year"><i class="fas fa-calendar"></i> 2015</div>
-            <div class="storyline-content">Founded The Kachoo publishing house in Jakarta with focus on psychological thrillers</div>
-        </div>
-        
-        <div class="storyline-item">
-            <div class="storyline-year"><i class="fas fa-calendar"></i> 2018</div>
-            <div class="storyline-content">Breakthrough novel "Hide and Lies: The Man Behind Delanosa" became national bestseller</div>
-        </div>
-        
-        <div class="storyline-item">
-            <div class="storyline-year"><i class="fas fa-calendar"></i> 2020</div>
-            <div class="storyline-content">Expanded The Kachoo to include digital publishing and writer mentorship program</div>
-        </div>
-        
-        <div class="storyline-item">
-            <div class="storyline-year"><i class="fas fa-calendar"></i> 2023</div>
-            <div class="storyline-content">"The Last Order: Rowan" launched as first book in dark fantasy trilogy</div>
-        </div>
-        
-        <div class="storyline-item">
-            <div class="storyline-year"><i class="fas fa-calendar"></i> 2026</div>
-            <div class="storyline-content">Currently working on political thriller series exploring government conspiracies</div>
+        <div class="storyline-content">
+            <p>Gathur Delano Kafka is a reclusive thriller novelist whose works are known for their dense psychological tension and intricate mysteries. A gifted polyglot, he masters many languages such as English, German, Japanese, French, and others, using them instinctively both in daily life and in his writing. For Gathur, language is more than communication. Each language carries its own logic, emotion, and way of expressing fear. This belief shapes his novels, where foreign phrases, multilingual dialogue, and linguistic symbolism are woven into the narrative to create unease and hidden meaning. Readers admire his books for their intellectual depth, unaware that every word is rooted in fragments of his own fractured psyche.</p>
+            
+            <p>After relentlessly pushing himself to complete his most complex thriller, Gathur becomes the victim of a severe accident that leaves him in critical condition. As his body lies motionless between life and death, his consciousness drifts instead of fading away. He opens his eyes to a world that feels hauntingly familiar, a dark city filled with distorted places, cryptic conversations, and an atmosphere thick with dread. Gradually, realization dawns on him that this world is not random. It is the very story he wrote, brought to life from his imagination, and somehow he has crossed into it at the moment his real body began to fail.</p>
+            
+            <p>Inside the story, Gathur is stripped of his role as an author and forced to exist as part of the plot. The characters he once created now possess their own will, some treating him as a myth, others sensing him as a threat. The rules of the thriller govern everything, where secrets demand to be uncovered and mistakes are punished without mercy. His ability to understand multiple languages becomes his greatest weapon. Through scattered texts, coded warnings, and conversations that shift from one language to another, Gathur uncovers hidden layers of the narrative that only he can perceive. Each language reveals a different truth, guiding him deeper into the heart of the story and closer to the fears he tried to conceal through fiction.</p>
+            
+            <p>As reality and fiction blur, Gathur is forced to confront the darkness embedded within his own writing. The story reflects his regrets, obsessions, and moral dilemmas, turning them into tangible threats. To escape, he must do the impossible by completing the story from within, not by writing words, but by making irreversible choices that shape its ending. Whether he will awaken from his critical state or remain forever imprisoned inside the thriller he created is uncertain, as the story continues to close in around him, demanding a conclusion that only he can deliver.</p>
         </div>
     </section>
     
     <!-- GALLERY SECTION -->
     <section id="gallery" class="content-section">
         <h2 class="section-title"><i class="fas fa-images"></i> Gallery</h2>
-        <p style="color:#666; margin-bottom:20px;">Collection of book covers, writing process, and literary events</p>
         
         <div class="gallery-grid">
-            <div class="gallery-item">
-                <div class="gallery-placeholder">
-                    <i class="fas fa-book"></i>
-                    <div>Book Covers</div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <div class="gallery-placeholder">
-                    <i class="fas fa-pen-nib"></i>
-                    <div>Writing Process</div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <div class="gallery-placeholder">
-                    <i class="fas fa-users"></i>
-                    <div>Book Events</div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <div class="gallery-placeholder">
-                    <i class="fas fa-landmark"></i>
-                    <div>The Kachoo Office</div>
-                </div>
-            </div>
+            <div class="gallery-item foto1"></div>
+            <div class="gallery-item foto2"></div>
+            <div class="gallery-item foto3"></div>
+            <div class="gallery-item foto4"></div>
+            <div class="gallery-item foto5"></div>
+            <div class="gallery-item foto6"></div>
         </div>
     </section>
     
     <!-- TRIVIA SECTION -->
     <section id="trivia" class="content-section">
         <h2 class="section-title"><i class="fas fa-lightbulb"></i> Trivia</h2>
-        <p style="color:#666; margin-bottom:20px;">Interesting facts about Gathur Delano Kafka</p>
         
         <div class="trivia-item">
             <div class="trivia-question">Favorite Writing Genre</div>
@@ -743,7 +786,6 @@
     <!-- MUSIC FAVORITES SECTION -->
     <section id="music" class="content-section">
         <h2 class="section-title"><i class="fas fa-music"></i> Favorite Music</h2>
-        <p style="color:#666; margin-bottom:20px;">Music collection for writing inspiration</p>
         
         <div class="music-item">
             <div class="music-icon">
@@ -788,10 +830,6 @@
             </div>
             <a href="https://open.spotify.com/track/2vXJsKHmBpI9I3fUoWXwKp" class="music-link" target="_blank">Listen</a>
         </div>
-        
-        <p style="margin-top: 20px; color: #666; font-size: 14px; text-align: center;">
-            <i class="fas fa-info-circle"></i> Replace Spotify links above with your favorite tracks
-        </p>
     </section>
     
     <footer>
@@ -844,6 +882,13 @@
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('profile').classList.add('active');
         });
+        
+        // Prevent text selection on tap
+        document.addEventListener('touchstart', function(e) {
+            if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.classList.contains('nav-btn')) {
+                e.preventDefault();
+            }
+        }, { passive: false });
     </script>
 </body>
 </html>
