@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gathur Delano Kafka | Penulis & Penerbit</title>
+    <title>Gathur Delano Kafka | Writer & Publisher</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -11,7 +11,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
         }
         
         body {
@@ -54,19 +54,6 @@
         .profile-photo:hover {
             transform: scale(1.05);
             border-color: #000;
-        }
-        
-        .photo-placeholder {
-            text-align: center;
-            color: #666;
-            font-size: 14px;
-            padding: 10px;
-        }
-        
-        .photo-placeholder i {
-            font-size: 40px;
-            margin-bottom: 8px;
-            display: block;
         }
         
         .profile-name {
@@ -132,51 +119,22 @@
             margin-top: 5px;
         }
         
-        .action-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-            width: 90%;
-        }
-        
-        .action-btn {
-            flex: 1;
-            padding: 12px;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 15px;
-            text-align: center;
-            cursor: pointer;
-            border: none;
-        }
-        
-        .follow-btn {
-            background-color: #000;
-            color: #fff;
-        }
-        
-        .follow-btn:hover, .follow-btn:active {
-            background-color: #333;
-            transform: translateY(-2px);
-        }
-        
-        .message-btn {
-            background-color: #f0f0f0;
-            color: #000;
-            border: 1px solid #ddd;
-        }
-        
-        .message-btn:hover, .message-btn:active {
-            background-color: #e0e0e0;
-            transform: translateY(-2px);
-        }
-        
         .content-section {
             background-color: #fff;
             margin: 15px;
             padding: 20px;
             border-radius: 15px;
             border: 1px solid #e0e0e0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            display: none;
+        }
+        
+        .content-section.active {
+            opacity: 1;
+            transform: translateY(0);
+            display: block;
         }
         
         .content-section:hover {
@@ -235,57 +193,37 @@
             font-size: 14px;
         }
         
-        .content-list {
-            list-style-type: none;
-        }
-        
-        .content-item {
-            padding: 15px;
-            border-bottom: 1px solid #e0e0e0;
+        .navigation-buttons {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-radius: 8px;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 15px;
         }
         
-        .content-item:hover {
+        .nav-btn {
             background-color: #f8f8f8;
-        }
-        
-        .content-item:last-child {
-            border-bottom: none;
-        }
-        
-        .content-item-title {
-            font-size: 16px;
-            font-weight: 500;
-        }
-        
-        .content-item-link {
             color: #000;
-            text-decoration: none;
-            font-size: 14px;
+            border: 1px solid #e0e0e0;
+            border-radius: 25px;
+            padding: 12px 25px;
+            font-size: 15px;
             font-weight: 500;
-            padding: 6px 12px;
-            border-radius: 15px;
-            background-color: #f0f0f0;
-            border: 1px solid #ddd;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            flex: 1;
         }
         
-        .content-item-link:hover, .content-item-link:active {
+        .nav-btn.active {
             background-color: #000;
             color: #fff;
+            border-color: #000;
         }
         
-        .content-item-type {
-            font-size: 13px;
-            color: #666;
-            margin-top: 5px;
-        }
-        
-        .content-item-year {
-            font-size: 13px;
-            color: #888;
+        .nav-btn:hover, .nav-btn:active {
+            background-color: #333;
+            color: #fff;
+            transform: translateY(-2px);
         }
         
         .gallery-grid {
@@ -320,46 +258,6 @@
         .gallery-placeholder i {
             font-size: 30px;
             margin-bottom: 10px;
-            display: block;
-        }
-        
-        .navigation-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin: 20px 15px;
-        }
-        
-        .nav-btn {
-            background-color: #f8f8f8;
-            color: #000;
-            border: 1px solid #e0e0e0;
-            border-radius: 25px;
-            padding: 12px 25px;
-            font-size: 15px;
-            font-weight: 500;
-            cursor: pointer;
-            text-decoration: none;
-            text-align: center;
-            flex: 1;
-        }
-        
-        .nav-btn.active {
-            background-color: #000;
-            color: #fff;
-            border-color: #000;
-        }
-        
-        .nav-btn:hover, .nav-btn:active {
-            background-color: #333;
-            color: #fff;
-        }
-        
-        .section-content {
-            display: none;
-        }
-        
-        .section-content.active {
             display: block;
         }
         
@@ -446,6 +344,40 @@
         .music-link:hover, .music-link:active {
             background-color: #1DB954;
             color: white;
+            transform: scale(0.95);
+        }
+        
+        .storyline-item {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+        
+        .storyline-item:hover {
+            background-color: #f8f8f8;
+        }
+        
+        .storyline-item:last-child {
+            border-bottom: none;
+        }
+        
+        .storyline-year {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #000;
+            display: flex;
+            align-items: center;
+        }
+        
+        .storyline-year i {
+            margin-right: 8px;
+            color: #333;
+        }
+        
+        .storyline-content {
+            color: #666;
+            font-size: 15px;
+            padding-left: 24px;
         }
         
         footer {
@@ -470,10 +402,6 @@
                 width: 95%;
             }
             
-            .action-buttons {
-                width: 95%;
-            }
-            
             .music-item {
                 flex-direction: column;
                 align-items: flex-start;
@@ -485,17 +413,22 @@
             }
         }
         
-        /* Animasi untuk sentuhan/klik */
-        .click-effect:active {
-            transform: scale(0.95);
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
         }
         
         /* Efek untuk semua elemen interaktif */
-        button, .nav-btn, .music-link, .content-item-link {
+        button, .nav-btn, .music-link {
             transition: transform 0.1s ease, background-color 0.2s ease;
         }
         
-        button:active, .nav-btn:active, .music-link:active, .content-item-link:active {
+        button:active, .nav-btn:active, .music-link:active {
             transform: scale(0.95);
         }
     </style>
@@ -504,28 +437,27 @@
     <header>
         <div class="profile-container">
             <div class="profile-photo">
-    <img src="gathurdelanokafka.png" alt="Gathur Delano Kafka" style="width: 100%; height: 100%; object-fit: cover;">
-</div>
-                </div>
+                <img src="gathurdelanokafka.png" alt="Gathur Delano Kafka" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
             
             <h1 class="profile-name">Gathur Delano Kafka</h1>
             <div class="profile-username">
                 <a href="https://x.com/@gaxlak" target="_blank">@gaxlak <i class="fab fa-twitter"></i></a>
             </div>
-            <p class="profile-tagline">Penulis & Penerbit | Direktur The Kachoo</p>
+            <p class="profile-tagline">Writer & Publisher | Director of The Kachoo</p>
             
             <div class="stats-container">
                 <div class="stat-item">
-                    <div class="stat-number">8</div>
-                    <div class="stat-label">Karya</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">4</div>
-                    <div class="stat-label">Buku</div>
-                </div>
-                <div class="stat-item">
                     <div class="stat-number">12</div>
-                    <div class="stat-label">Tahun</div>
+                    <div class="stat-label">Years Writing</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Dark Ideas</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">34</div>
+                    <div class="stat-label">Age</div>
                 </div>
             </div>
         </div>
@@ -533,200 +465,149 @@
     
     <div class="navigation-buttons">
         <a href="#" class="nav-btn active" data-target="profile">Profile</a>
+        <a href="#" class="nav-btn" data-target="storyline">Storyline</a>
         <a href="#" class="nav-btn" data-target="gallery">Gallery</a>
         <a href="#" class="nav-btn" data-target="trivia">Trivia</a>
-        <a href="#" class="nav-btn" data-target="music">Favorit Musik</a>
+        <a href="#" class="nav-btn" data-target="music">Favorites</a>
     </div>
     
     <!-- PROFILE SECTION -->
-    <section id="profile" class="content-section section-content active">
-        <h2 class="section-title"><i class="fas fa-user"></i> Tentang Saya</h2>
+    <section id="profile" class="content-section active">
+        <h2 class="section-title"><i class="fas fa-user"></i> About Me</h2>
         
         <div class="bio-details">
             <div class="bio-item">
                 <div class="bio-icon"><i class="fas fa-book"></i></div>
                 <div class="bio-text">
-                    <div class="bio-title">Penulis & Penerbit Buku</div>
-                    <div class="bio-description">Menulis dan menerbitkan karya fiksi sejak 2012</div>
+                    <div class="bio-title">Writer & Book Publisher</div>
+                    <div class="bio-description">Expert in dark themes, politics, and thriller narratives</div>
                 </div>
             </div>
             
             <div class="bio-item">
                 <div class="bio-icon"><i class="fas fa-briefcase"></i></div>
                 <div class="bio-text">
-                    <div class="bio-title">Direktur The Kachoo</div>
-                    <div class="bio-description">Jakarta Selatan, Indonesia</div>
+                    <div class="bio-title">Director of The Kachoo</div>
+                    <div class="bio-description">South Jakarta, Indonesia</div>
                 </div>
             </div>
             
             <div class="bio-item">
                 <div class="bio-icon"><i class="fas fa-birthday-cake"></i></div>
                 <div class="bio-text">
-                    <div class="bio-title">Kelahiran 1992</div>
-                    <div class="bio-description">34 tahun (di 2026)</div>
+                    <div class="bio-title">Born 1992</div>
+                    <div class="bio-description">34 years old (in 2026)</div>
                 </div>
             </div>
             
             <div class="bio-item">
                 <div class="bio-icon"><i class="fas fa-map-marker-alt"></i></div>
                 <div class="bio-text">
-                    <div class="bio-title">London, Inggris</div>
-                    <div class="bio-description">Lahir dan besar di London, asli London</div>
+                    <div class="bio-title">London, England</div>
+                    <div class="bio-description">Born and raised in London, originally from London</div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- BOOKS SECTION -->
-    <section id="profile" class="content-section section-content active">
-        <h2 class="section-title"><i class="fas fa-book-open"></i> Buku yang Telah Terbit</h2>
-        <ul class="content-list">
-            <li class="content-item">
-                <div>
-                    <div class="content-item-title">Hide and Lies : The Man Behind Delanosa</div>
-                    <div class="content-item-type">Novel Thriller Psikologis</div>
-                </div>
-                <div class="content-item-year">2018</div>
-            </li>
-            <li class="content-item">
-                <div>
-                    <div class="content-item-title">The Anthology of Jane</div>
-                    <div class="content-item-type">Kumpulan Cerpen</div>
-                </div>
-                <div class="content-item-year">2020</div>
-            </li>
-            <li class="content-item">
-                <div>
-                    <div class="content-item-title">The Hidden Story Vol.1</div>
-                    <div class="content-item-type">Antologi Kolaborasi</div>
-                </div>
-                <div class="content-item-year">2021</div>
-            </li>
-            <li class="content-item">
-                <div>
-                    <div class="content-item-title">The Last Order : Rowan</div>
-                    <div class="content-item-type">Novel Fantasi Seri</div>
-                </div>
-                <div class="content-item-year">2023</div>
-            </li>
-        </ul>
-    </section>
-    
-    <!-- SHORT STORIES SECTION -->
-    <section id="profile" class="content-section section-content active">
-        <h2 class="section-title"><i class="fas fa-pen-fancy"></i> Short Story</h2>
-        <ul class="content-list">
-            <li class="content-item">
-                <div>
-                    <div class="content-item-title">The Scandalous</div>
-                    <div class="content-item-type">Cerita Pendek Drama</div>
-                </div>
-                <a href="https://x.com/i/status/1997873274479681599" class="content-item-link" target="_blank">Baca</a>
-            </li>
-            <li class="content-item">
-                <div>
-                    <div class="content-item-title">Retak : Perdebatan Malam Itu</div>
-                    <div class="content-item-type">Cerita Pendek Keluarga</div>
-                </div>
-                <a href="https://x.com/i/status/2000169761188278714" class="content-item-link" target="_blank">Baca</a>
-            </li>
-            <li class="content-item">
-                <div>
-                    <div class="content-item-title">High by the Beach feat Cindy Lou</div>
-                    <div class="content-item-type">Cerita Pendek Romantis</div>
-                </div>
-                <a href="https://x.com/i/status/1999453298886344899" class="content-item-link" target="_blank">Baca</a>
-            </li>
-            <li class="content-item">
-                <div>
-                    <div class="content-item-title">Blind Date Kok Sama Mantan?!</div>
-                    <div class="content-item-type">Cerita Pendek Komedi</div>
-                </div>
-                <a href="https://x.com/i/status/1999881119840481467" class="content-item-link" target="_blank">Baca</a>
-            </li>
-        </ul>
+    <!-- STORYLINE SECTION -->
+    <section id="storyline" class="content-section">
+        <h2 class="section-title"><i class="fas fa-timeline"></i> Storyline</h2>
+        
+        <div class="storyline-item">
+            <div class="storyline-year"><i class="fas fa-calendar"></i> 2012</div>
+            <div class="storyline-content">Published first short story collection while studying literature at University of London</div>
+        </div>
+        
+        <div class="storyline-item">
+            <div class="storyline-year"><i class="fas fa-calendar"></i> 2015</div>
+            <div class="storyline-content">Founded The Kachoo publishing house in Jakarta with focus on psychological thrillers</div>
+        </div>
+        
+        <div class="storyline-item">
+            <div class="storyline-year"><i class="fas fa-calendar"></i> 2018</div>
+            <div class="storyline-content">Breakthrough novel "Hide and Lies: The Man Behind Delanosa" became national bestseller</div>
+        </div>
+        
+        <div class="storyline-item">
+            <div class="storyline-year"><i class="fas fa-calendar"></i> 2020</div>
+            <div class="storyline-content">Expanded The Kachoo to include digital publishing and writer mentorship program</div>
+        </div>
+        
+        <div class="storyline-item">
+            <div class="storyline-year"><i class="fas fa-calendar"></i> 2023</div>
+            <div class="storyline-content">"The Last Order: Rowan" launched as first book in dark fantasy trilogy</div>
+        </div>
+        
+        <div class="storyline-item">
+            <div class="storyline-year"><i class="fas fa-calendar"></i> 2026</div>
+            <div class="storyline-content">Currently working on political thriller series exploring government conspiracies</div>
+        </div>
     </section>
     
     <!-- GALLERY SECTION -->
-    <section id="gallery" class="content-section section-content">
+    <section id="gallery" class="content-section">
         <h2 class="section-title"><i class="fas fa-images"></i> Gallery</h2>
-        <p style="color:#666; margin-bottom:20px;">Koleksi gambar dari buku, acara, dan kegiatan menulis</p>
+        <p style="color:#666; margin-bottom:20px;">Collection of book covers, writing process, and literary events</p>
         
         <div class="gallery-grid">
             <div class="gallery-item">
                 <div class="gallery-placeholder">
                     <i class="fas fa-book"></i>
-                    <div>Sampul Buku</div>
+                    <div>Book Covers</div>
                 </div>
             </div>
             <div class="gallery-item">
                 <div class="gallery-placeholder">
                     <i class="fas fa-pen-nib"></i>
-                    <div>Proses Menulis</div>
+                    <div>Writing Process</div>
                 </div>
             </div>
             <div class="gallery-item">
                 <div class="gallery-placeholder">
                     <i class="fas fa-users"></i>
-                    <div>Acara Buku</div>
+                    <div>Book Events</div>
                 </div>
             </div>
             <div class="gallery-item">
                 <div class="gallery-placeholder">
                     <i class="fas fa-landmark"></i>
-                    <div>The Kachoo</div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <div class="gallery-placeholder">
-                    <i class="fas fa-award"></i>
-                    <div>Penghargaan</div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <div class="gallery-placeholder">
-                    <i class="fas fa-camera"></i>
-                    <div>Foto Pribadi</div>
+                    <div>The Kachoo Office</div>
                 </div>
             </div>
         </div>
     </section>
     
     <!-- TRIVIA SECTION -->
-    <section id="trivia" class="content-section section-content">
+    <section id="trivia" class="content-section">
         <h2 class="section-title"><i class="fas fa-lightbulb"></i> Trivia</h2>
-        <p style="color:#666; margin-bottom:20px;">Fakta menarik tentang Gathur Delano Kafka</p>
+        <p style="color:#666; margin-bottom:20px;">Interesting facts about Gathur Delano Kafka</p>
         
         <div class="trivia-item">
-            <div class="trivia-question">Kapan mulai menulis?</div>
-            <div class="trivia-answer">Mulai menulis cerita pendek sejak usia 15 tahun, karya pertama diterbitkan di majalah sekolah.</div>
+            <div class="trivia-question">Favorite Writing Genre</div>
+            <div class="trivia-answer">Thriller - especially psychological and political thrillers with dark themes</div>
         </div>
         
         <div class="trivia-item">
-            <div class="trivia-question">Inspirasi nama "The Kachoo"?</div>
-            <div class="trivia-answer">Diambil dari suara bersin kucing peliharaannya yang selalu menemani proses menulis.</div>
+            <div class="trivia-question">Favorite Films & Series</div>
+            <div class="trivia-answer">Alice in Borderland, Shutter Island, The Cabin in the Woods, Attack on Titan, Jujutsu Kaisen, Monster (Anime series), and other psychological thrillers</div>
         </div>
         
         <div class="trivia-item">
-            <div class="trivia-question">Genre favorit untuk ditulis?</div>
-            <div class="trivia-answer">Thriller psikologis dengan elemen misteri, terinspirasi dari penulis seperti Gillian Flynn dan Paula Hawkins.</div>
+            <div class="trivia-question">Personality Traits</div>
+            <div class="trivia-answer">Workaholic and smoker. Has long, large fingers and intense eyes. Tends to stare at new people who intrigue him - the gaze can be unsettling as he seems to dissect someone just by looking at them</div>
         </div>
         
         <div class="trivia-item">
-            <div class="trivia-question">Rutinitas menulis?</div>
-            <div class="trivia-answer">Menulis setiap pagi pukul 5-7 pagi dengan secangkir teh Earl Grey, tanpa gangguan teknologi.</div>
-        </div>
-        
-        <div class="trivia-item">
-            <div class="trivia-question">Proyek berikutnya?</div>
-            <div class="trivia-answer">Sedang mengerjakan sekuel "The Last Order: Rowan" dan antologi cerita pendek urban legend Indonesia.</div>
+            <div class="trivia-question">Interests</div>
+            <div class="trivia-answer">Fascinated by conspiracies, enjoys analyzing human behavior, and loves exploring dark psychological themes in both reading and writing</div>
         </div>
     </section>
     
     <!-- MUSIC FAVORITES SECTION -->
-    <section id="music" class="content-section section-content">
-        <h2 class="section-title"><i class="fas fa-music"></i> Musik Favorit</h2>
-        <p style="color:#666; margin-bottom:20px;">Koleksi lagu favorit untuk menemani waktu menulis</p>
+    <section id="music" class="content-section">
+        <h2 class="section-title"><i class="fas fa-music"></i> Favorite Music</h2>
+        <p style="color:#666; margin-bottom:20px;">Music collection for writing inspiration</p>
         
         <div class="music-item">
             <div class="music-icon">
@@ -736,7 +617,7 @@
                 <div class="music-title">Bohemian Rhapsody</div>
                 <div class="music-artist">Queen</div>
             </div>
-            <a href="https://open.spotify.com/track/3z8h0TU7ReDPLIbEnYhWZb" class="music-link" target="_blank">Dengarkan</a>
+            <a href="https://open.spotify.com/track/3z8h0TU7ReDPLIbEnYhWZb" class="music-link" target="_blank">Listen</a>
         </div>
         
         <div class="music-item">
@@ -747,7 +628,7 @@
                 <div class="music-title">Blinding Lights</div>
                 <div class="music-artist">The Weeknd</div>
             </div>
-            <a href="https://open.spotify.com/track/0VjIjW4GlUZAMYd2vXMi3b" class="music-link" target="_blank">Dengarkan</a>
+            <a href="https://open.spotify.com/track/0VjIjW4GlUZAMYd2vXMi3b" class="music-link" target="_blank">Listen</a>
         </div>
         
         <div class="music-item">
@@ -758,18 +639,7 @@
                 <div class="music-title">Take Five</div>
                 <div class="music-artist">Dave Brubeck</div>
             </div>
-            <a href="https://open.spotify.com/track/1YQWosTIljIvxAgHWTp7KP" class="music-link" target="_blank">Dengarkan</a>
-        </div>
-        
-        <div class="music-item">
-            <div class="music-icon">
-                <i class="fab fa-spotify"></i>
-            </div>
-            <div class="music-info">
-                <div class="music-title">Yesterday</div>
-                <div class="music-artist">The Beatles</div>
-            </div>
-            <a href="https://open.spotify.com/track/3BQHpFgAp4l80e1XslIjNI" class="music-link" target="_blank">Dengarkan</a>
+            <a href="https://open.spotify.com/track/1YQWosTIljIvxAgHWTp7KP" class="music-link" target="_blank">Listen</a>
         </div>
         
         <div class="music-item">
@@ -780,85 +650,63 @@
                 <div class="music-title">Writing's On The Wall</div>
                 <div class="music-artist">Sam Smith</div>
             </div>
-            <a href="https://open.spotify.com/track/2vXJsKHmBpI9I3fUoWXwKp" class="music-link" target="_blank">Dengarkan</a>
+            <a href="https://open.spotify.com/track/2vXJsKHmBpI9I3fUoWXwKp" class="music-link" target="_blank">Listen</a>
         </div>
         
         <p style="margin-top: 20px; color: #666; font-size: 14px; text-align: center;">
-            <i class="fas fa-info-circle"></i> Ganti link Spotify di atas dengan lagu favorit Anda
+            <i class="fas fa-info-circle"></i> Replace Spotify links above with your favorite tracks
         </p>
     </section>
     
     <footer>
         <p>© 2026 Gathur Delano Kafka. All rights reserved.</p>
-        <p style="margin-top:10px; font-size:13px;">Penulis & Penerbit | Direktur The Kachoo</p>
+        <p style="margin-top:10px; font-size:13px;">Writer & Publisher | Director of The Kachoo</p>
     </footer>
     
     <script>
-        // Fungsi untuk navigasi antar halaman
+        // Navigation functionality with fade animations
         document.querySelectorAll('.nav-btn').forEach(btn => {
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
                 
-                // Hapus class active dari semua tombol
+                // Remove active class from all buttons
                 document.querySelectorAll('.nav-btn').forEach(b => {
                     b.classList.remove('active');
                 });
                 
-                // Tambah class active ke tombol yang diklik
+                // Add active class to clicked button
                 this.classList.add('active');
                 
-                // Sembunyikan semua section
-                document.querySelectorAll('.section-content').forEach(section => {
+                // Hide all sections with fade out
+                document.querySelectorAll('.content-section').forEach(section => {
                     section.classList.remove('active');
                 });
                 
-                // Tampilkan section yang sesuai
+                // Show target section with fade in
                 const target = this.getAttribute('data-target');
-                document.getElementById(target).classList.add('active');
-                
-                // Jika target adalah profile, tampilkan semua section profile
-                if (target === 'profile') {
-                    document.querySelectorAll('#profile').forEach(section => {
-                        section.classList.add('active');
-                    });
-                }
+                const targetSection = document.getElementById(target);
+                setTimeout(() => {
+                    targetSection.classList.add('active');
+                }, 50);
             });
         });
         
-        // Fungsi untuk tombol follow
-        const followBtn = document.querySelector('.follow-btn');
-        if (followBtn) {
-            followBtn.addEventListener('click', function() {
-                if (this.textContent === 'Follow') {
-                    this.textContent = 'Following';
-                    this.style.backgroundColor = '#333';
-                    alert('Anda sekarang mengikuti Gathur Delano Kafka!');
-                } else {
-                    this.textContent = 'Follow';
-                    this.style.backgroundColor = '#000';
-                    alert('Anda berhenti mengikuti Gathur Delano Kafka.');
-                }
-            });
-        }
-        
-        // Efek sentuhan untuk semua elemen interaktif
-        document.querySelectorAll('button, .nav-btn, .music-link, .content-item-link').forEach(el => {
+        // Hover effects for interactive elements
+        document.querySelectorAll('button, .nav-btn, .music-link').forEach(el => {
             el.addEventListener('touchstart', function() {
-                this.classList.add('click-effect');
+                this.style.transform = 'scale(0.95)';
             });
             
             el.addEventListener('touchend', function() {
                 setTimeout(() => {
-                    this.classList.remove('click-effect');
+                    this.style.transform = '';
                 }, 150);
             });
         });
         
-        // Efek hover untuk perangkat dengan mouse
-        document.querySelectorAll('.music-item, .content-item, .bio-item, .gallery-item').forEach(el => {
-            el.addEventListener('mouseenter', function() {
-                this.style.transition = 'transform 0.2s ease, background-color 0.2s ease';
-            });
+        // Initialize with profile section active
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('profile').classList.add('active');
         });
     </script>
 </body>
