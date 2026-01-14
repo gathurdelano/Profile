@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gathur Delano Kafka | Penulis & Penerbit</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transition: all 0.2s ease;
+        }
+        
+        body {
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+            max-width: 500px;
+            margin: 0 auto;
+            padding-bottom: 20px;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        header {
+            background: linear-gradient(to bottom, #f8f8f8, #ffffff);
+            padding: 30px 20px 20px;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .profile-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 4px solid #333;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .profile-photo:hover {
+            transform: scale(1.05);
+            border-color: #000;
+        }
+        
+        .photo-placeholder {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            padding: 10px;
+        }
+        
+        .photo-placeholder i {
+            font-size: 40px;
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        .profile-name {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+        
+        .profile-username {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .profile-username a {
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .profile-username a:hover {
+            color: #1DA1F2;
+        }
+        
+        .profile-tagline {
+            color: #333;
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f8f8f8;
+            border-radius: 15px;
+            width: 90%;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .stats-container:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 22px;
+            font-weight: 700;
+        }
+        
+        .stat-label {
+            font-size: 13px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            width: 90%;
+        }
+        
+        .action-btn {
+            flex: 1;
+            padding: 12px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 15px;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .follow-btn {
+            background-color: #000;
+            color: #fff;
+        }
+        
+        .follow-btn:hover, .follow-btn:active {
+            background-color: #333;
+            transform: translateY(-2px);
+        }
+        
+        .message-btn {
+            background-color: #f0f0f0;
+            color: #000;
+            border: 1px solid #ddd;
+        }
+        
+        .message-btn:hover, .message-btn:active {
+            background-color: #e0e0e0;
+            transform: translateY(-2px);
+        }
+        
+        .content-section {
+            background-color: #fff;
+            margin: 15px;
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .content-section:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .section-title {
+            font-size: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .section-title i {
+            margin-right: 10px;
+            color: #333;
+        }
+        
+        .bio-details {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .bio-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 8px;
+            border-radius: 8px;
+        }
+        
+        .bio-item:hover {
+            background-color: #f8f8f8;
+        }
+        
+        .bio-icon {
+            width: 24px;
+            margin-right: 12px;
+            color: #333;
+            margin-top: 2px;
+        }
+        
+        .bio-text {
+            flex: 1;
+        }
+        
+        .bio-title {
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+        
+        .bio-description {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .content-list {
+            list-style-type: none;
+        }
+        
+        .content-item {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 8px;
+        }
+        
+        .content-item:hover {
+            background-color: #f8f8f8;
+        }
+        
+        .content-item:last-child {
+            border-bottom: none;
+        }
+        
+        .content-item-title {
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        .content-item-link {
+            color: #000;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 15px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+        }
+        
+        .content-item-link:hover, .content-item-link:active {
+            background-color: #000;
+            color: #fff;
+        }
+        
+        .content-item-type {
+            font-size: 13px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .content-item-year {
+            font-size: 13px;
+            color: #888;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .gallery-item {
+            aspect-ratio: 1;
+            background-color: #f8f8f8;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+            background-color: #f0f0f0;
+        }
+        
+        .gallery-placeholder {
+            text-align: center;
+            color: #666;
+            padding: 20px;
+        }
+        
+        .gallery-placeholder i {
+            font-size: 30px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .navigation-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 15px;
+        }
+        
+        .nav-btn {
+            background-color: #f8f8f8;
+            color: #000;
+            border: 1px solid #e0e0e0;
+            border-radius: 25px;
+            padding: 12px 25px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            flex: 1;
+        }
+        
+        .nav-btn.active {
+            background-color: #000;
+            color: #fff;
+            border-color: #000;
+        }
+        
+        .nav-btn:hover, .nav-btn:active {
+            background-color: #333;
+            color: #fff;
+        }
+        
+        .section-content {
+            display: none;
+        }
+        
+        .section-content.active {
+            display: block;
+        }
+        
+        .trivia-item {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+        
+        .trivia-item:hover {
+            background-color: #f8f8f8;
+        }
+        
+        .trivia-item:last-child {
+            border-bottom: none;
+        }
+        
+        .trivia-question {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #000;
+        }
+        
+        .trivia-answer {
+            color: #666;
+            font-size: 15px;
+        }
+        
+        .music-item {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            border-radius: 8px;
+        }
+        
+        .music-item:hover {
+            background-color: #f8f8f8;
+            transform: translateX(5px);
+        }
+        
+        .music-item:last-child {
+            border-bottom: none;
+        }
+        
+        .music-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #1DB954, #1ED760);
+            border-radius: 8px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+        
+        .music-info {
+            flex: 1;
+        }
+        
+        .music-title {
+            font-weight: 600;
+            margin-bottom: 3px;
+            color: #000;
+        }
+        
+        .music-artist {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .music-link {
+            color: #000;
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 15px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            font-size: 14px;
+        }
+        
+        .music-link:hover, .music-link:active {
+            background-color: #1DB954;
+            color: white;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #666;
+            font-size: 14px;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 500px) {
+            body {
+                padding-bottom: 10px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-container {
+                width: 95%;
+            }
+            
+            .action-buttons {
+                width: 95%;
+            }
+            
+            .music-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .music-link {
+                align-self: flex-end;
+            }
+        }
+        
+        /* Animasi untuk sentuhan/klik */
+        .click-effect:active {
+            transform: scale(0.95);
+        }
+        
+        /* Efek untuk semua elemen interaktif */
+        button, .nav-btn, .music-link, .content-item-link {
+            transition: transform 0.1s ease, background-color 0.2s ease;
+        }
+        
+        button:active, .nav-btn:active, .music-link:active, .content-item-link:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="profile-container">
+            <div class="profile-photo">
+                <div class="photo-placeholder">
+                    <i class="fas fa-user"></i>
+                    <div>Foto Profil</div>
+                </div>
+            </div>
+            
+            <h1 class="profile-name">Gathur Delano Kafka</h1>
+            <div class="profile-username">
+                <a href="https://x.com/@gaxlak" target="_blank">@gaxlak <i class="fab fa-twitter"></i></a>
+            </div>
+            <p class="profile-tagline">Penulis & Penerbit | Direktur The Kachoo</p>
+            
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Karya</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Buku</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Tahun</div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="navigation-buttons">
+        <a href="#" class="nav-btn active" data-target="profile">Profile</a>
+        <a href="#" class="nav-btn" data-target="gallery">Gallery</a>
+        <a href="#" class="nav-btn" data-target="trivia">Trivia</a>
+        <a href="#" class="nav-btn" data-target="music">Favorit Musik</a>
+    </div>
+    
+    <!-- PROFILE SECTION -->
+    <section id="profile" class="content-section section-content active">
+        <h2 class="section-title"><i class="fas fa-user"></i> Tentang Saya</h2>
+        
+        <div class="bio-details">
+            <div class="bio-item">
+                <div class="bio-icon"><i class="fas fa-book"></i></div>
+                <div class="bio-text">
+                    <div class="bio-title">Penulis & Penerbit Buku</div>
+                    <div class="bio-description">Menulis dan menerbitkan karya fiksi sejak 2012</div>
+                </div>
+            </div>
+            
+            <div class="bio-item">
+                <div class="bio-icon"><i class="fas fa-briefcase"></i></div>
+                <div class="bio-text">
+                    <div class="bio-title">Direktur The Kachoo</div>
+                    <div class="bio-description">Jakarta Selatan, Indonesia</div>
+                </div>
+            </div>
+            
+            <div class="bio-item">
+                <div class="bio-icon"><i class="fas fa-birthday-cake"></i></div>
+                <div class="bio-text">
+                    <div class="bio-title">Kelahiran 1992</div>
+                    <div class="bio-description">34 tahun (di 2026)</div>
+                </div>
+            </div>
+            
+            <div class="bio-item">
+                <div class="bio-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="bio-text">
+                    <div class="bio-title">London, Inggris</div>
+                    <div class="bio-description">Lahir dan besar di London, asli London</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- BOOKS SECTION -->
+    <section id="profile" class="content-section section-content active">
+        <h2 class="section-title"><i class="fas fa-book-open"></i> Buku yang Telah Terbit</h2>
+        <ul class="content-list">
+            <li class="content-item">
+                <div>
+                    <div class="content-item-title">Hide and Lies : The Man Behind Delanosa</div>
+                    <div class="content-item-type">Novel Thriller Psikologis</div>
+                </div>
+                <div class="content-item-year">2018</div>
+            </li>
+            <li class="content-item">
+                <div>
+                    <div class="content-item-title">The Anthology of Jane</div>
+                    <div class="content-item-type">Kumpulan Cerpen</div>
+                </div>
+                <div class="content-item-year">2020</div>
+            </li>
+            <li class="content-item">
+                <div>
+                    <div class="content-item-title">The Hidden Story Vol.1</div>
+                    <div class="content-item-type">Antologi Kolaborasi</div>
+                </div>
+                <div class="content-item-year">2021</div>
+            </li>
+            <li class="content-item">
+                <div>
+                    <div class="content-item-title">The Last Order : Rowan</div>
+                    <div class="content-item-type">Novel Fantasi Seri</div>
+                </div>
+                <div class="content-item-year">2023</div>
+            </li>
+        </ul>
+    </section>
+    
+    <!-- SHORT STORIES SECTION -->
+    <section id="profile" class="content-section section-content active">
+        <h2 class="section-title"><i class="fas fa-pen-fancy"></i> Short Story</h2>
+        <ul class="content-list">
+            <li class="content-item">
+                <div>
+                    <div class="content-item-title">The Scandalous</div>
+                    <div class="content-item-type">Cerita Pendek Drama</div>
+                </div>
+                <a href="https://x.com/i/status/1997873274479681599" class="content-item-link" target="_blank">Baca</a>
+            </li>
+            <li class="content-item">
+                <div>
+                    <div class="content-item-title">Retak : Perdebatan Malam Itu</div>
+                    <div class="content-item-type">Cerita Pendek Keluarga</div>
+                </div>
+                <a href="https://x.com/i/status/2000169761188278714" class="content-item-link" target="_blank">Baca</a>
+            </li>
+            <li class="content-item">
+                <div>
+                    <div class="content-item-title">High by the Beach feat Cindy Lou</div>
+                    <div class="content-item-type">Cerita Pendek Romantis</div>
+                </div>
+                <a href="https://x.com/i/status/1999453298886344899" class="content-item-link" target="_blank">Baca</a>
+            </li>
+            <li class="content-item">
+                <div>
+                    <div class="content-item-title">Blind Date Kok Sama Mantan?!</div>
+                    <div class="content-item-type">Cerita Pendek Komedi</div>
+                </div>
+                <a href="https://x.com/i/status/1999881119840481467" class="content-item-link" target="_blank">Baca</a>
+            </li>
+        </ul>
+    </section>
+    
+    <!-- GALLERY SECTION -->
+    <section id="gallery" class="content-section section-content">
+        <h2 class="section-title"><i class="fas fa-images"></i> Gallery</h2>
+        <p style="color:#666; margin-bottom:20px;">Koleksi gambar dari buku, acara, dan kegiatan menulis</p>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <div class="gallery-placeholder">
+                    <i class="fas fa-book"></i>
+                    <div>Sampul Buku</div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-placeholder">
+                    <i class="fas fa-pen-nib"></i>
+                    <div>Proses Menulis</div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-placeholder">
+                    <i class="fas fa-users"></i>
+                    <div>Acara Buku</div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-placeholder">
+                    <i class="fas fa-landmark"></i>
+                    <div>The Kachoo</div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-placeholder">
+                    <i class="fas fa-award"></i>
+                    <div>Penghargaan</div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-placeholder">
+                    <i class="fas fa-camera"></i>
+                    <div>Foto Pribadi</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- TRIVIA SECTION -->
+    <section id="trivia" class="content-section section-content">
+        <h2 class="section-title"><i class="fas fa-lightbulb"></i> Trivia</h2>
+        <p style="color:#666; margin-bottom:20px;">Fakta menarik tentang Gathur Delano Kafka</p>
+        
+        <div class="trivia-item">
+            <div class="trivia-question">Kapan mulai menulis?</div>
+            <div class="trivia-answer">Mulai menulis cerita pendek sejak usia 15 tahun, karya pertama diterbitkan di majalah sekolah.</div>
+        </div>
+        
+        <div class="trivia-item">
+            <div class="trivia-question">Inspirasi nama "The Kachoo"?</div>
+            <div class="trivia-answer">Diambil dari suara bersin kucing peliharaannya yang selalu menemani proses menulis.</div>
+        </div>
+        
+        <div class="trivia-item">
+            <div class="trivia-question">Genre favorit untuk ditulis?</div>
+            <div class="trivia-answer">Thriller psikologis dengan elemen misteri, terinspirasi dari penulis seperti Gillian Flynn dan Paula Hawkins.</div>
+        </div>
+        
+        <div class="trivia-item">
+            <div class="trivia-question">Rutinitas menulis?</div>
+            <div class="trivia-answer">Menulis setiap pagi pukul 5-7 pagi dengan secangkir teh Earl Grey, tanpa gangguan teknologi.</div>
+        </div>
+        
+        <div class="trivia-item">
+            <div class="trivia-question">Proyek berikutnya?</div>
+            <div class="trivia-answer">Sedang mengerjakan sekuel "The Last Order: Rowan" dan antologi cerita pendek urban legend Indonesia.</div>
+        </div>
+    </section>
+    
+    <!-- MUSIC FAVORITES SECTION -->
+    <section id="music" class="content-section section-content">
+        <h2 class="section-title"><i class="fas fa-music"></i> Musik Favorit</h2>
+        <p style="color:#666; margin-bottom:20px;">Koleksi lagu favorit untuk menemani waktu menulis</p>
+        
+        <div class="music-item">
+            <div class="music-icon">
+                <i class="fab fa-spotify"></i>
+            </div>
+            <div class="music-info">
+                <div class="music-title">Bohemian Rhapsody</div>
+                <div class="music-artist">Queen</div>
+            </div>
+            <a href="https://open.spotify.com/track/3z8h0TU7ReDPLIbEnYhWZb" class="music-link" target="_blank">Dengarkan</a>
+        </div>
+        
+        <div class="music-item">
+            <div class="music-icon">
+                <i class="fab fa-spotify"></i>
+            </div>
+            <div class="music-info">
+                <div class="music-title">Blinding Lights</div>
+                <div class="music-artist">The Weeknd</div>
+            </div>
+            <a href="https://open.spotify.com/track/0VjIjW4GlUZAMYd2vXMi3b" class="music-link" target="_blank">Dengarkan</a>
+        </div>
+        
+        <div class="music-item">
+            <div class="music-icon">
+                <i class="fab fa-spotify"></i>
+            </div>
+            <div class="music-info">
+                <div class="music-title">Take Five</div>
+                <div class="music-artist">Dave Brubeck</div>
+            </div>
+            <a href="https://open.spotify.com/track/1YQWosTIljIvxAgHWTp7KP" class="music-link" target="_blank">Dengarkan</a>
+        </div>
+        
+        <div class="music-item">
+            <div class="music-icon">
+                <i class="fab fa-spotify"></i>
+            </div>
+            <div class="music-info">
+                <div class="music-title">Yesterday</div>
+                <div class="music-artist">The Beatles</div>
+            </div>
+            <a href="https://open.spotify.com/track/3BQHpFgAp4l80e1XslIjNI" class="music-link" target="_blank">Dengarkan</a>
+        </div>
+        
+        <div class="music-item">
+            <div class="music-icon">
+                <i class="fab fa-spotify"></i>
+            </div>
+            <div class="music-info">
+                <div class="music-title">Writing's On The Wall</div>
+                <div class="music-artist">Sam Smith</div>
+            </div>
+            <a href="https://open.spotify.com/track/2vXJsKHmBpI9I3fUoWXwKp" class="music-link" target="_blank">Dengarkan</a>
+        </div>
+        
+        <p style="margin-top: 20px; color: #666; font-size: 14px; text-align: center;">
+            <i class="fas fa-info-circle"></i> Ganti link Spotify di atas dengan lagu favorit Anda
+        </p>
+    </section>
+    
+    <footer>
+        <p>© 2026 Gathur Delano Kafka. All rights reserved.</p>
+        <p style="margin-top:10px; font-size:13px;">Penulis & Penerbit | Direktur The Kachoo</p>
+    </footer>
+    
+    <script>
+        // Fungsi untuk navigasi antar halaman
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Hapus class active dari semua tombol
+                document.querySelectorAll('.nav-btn').forEach(b => {
+                    b.classList.remove('active');
+                });
+                
+                // Tambah class active ke tombol yang diklik
+                this.classList.add('active');
+                
+                // Sembunyikan semua section
+                document.querySelectorAll('.section-content').forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Tampilkan section yang sesuai
+                const target = this.getAttribute('data-target');
+                document.getElementById(target).classList.add('active');
+                
+                // Jika target adalah profile, tampilkan semua section profile
+                if (target === 'profile') {
+                    document.querySelectorAll('#profile').forEach(section => {
+                        section.classList.add('active');
+                    });
+                }
+            });
+        });
+        
+        // Fungsi untuk tombol follow
+        const followBtn = document.querySelector('.follow-btn');
+        if (followBtn) {
+            followBtn.addEventListener('click', function() {
+                if (this.textContent === 'Follow') {
+                    this.textContent = 'Following';
+                    this.style.backgroundColor = '#333';
+                    alert('Anda sekarang mengikuti Gathur Delano Kafka!');
+                } else {
+                    this.textContent = 'Follow';
+                    this.style.backgroundColor = '#000';
+                    alert('Anda berhenti mengikuti Gathur Delano Kafka.');
+                }
+            });
+        }
+        
+        // Efek sentuhan untuk semua elemen interaktif
+        document.querySelectorAll('button, .nav-btn, .music-link, .content-item-link').forEach(el => {
+            el.addEventListener('touchstart', function() {
+                this.classList.add('click-effect');
+            });
+            
+            el.addEventListener('touchend', function() {
+                setTimeout(() => {
+                    this.classList.remove('click-effect');
+                }, 150);
+            });
+        });
+        
+        // Efek hover untuk perangkat dengan mouse
+        document.querySelectorAll('.music-item, .content-item, .bio-item, .gallery-item').forEach(el => {
+            el.addEventListener('mouseenter', function() {
+                this.style.transition = 'transform 0.2s ease, background-color 0.2s ease';
+            });
+        });
+    </script>
+</body>
+</html>
