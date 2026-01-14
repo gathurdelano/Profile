@@ -279,6 +279,9 @@
             position: relative;
             cursor: pointer;
             transition: all 0.3s ease;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
         
         .gallery-item:hover {
@@ -304,8 +307,6 @@
         .gallery-item:hover::after {
             opacity: 1;
         }
-        
-        
         
         .trivia-item {
             padding: 20px;
@@ -808,7 +809,7 @@
                     <li class="content-item">
                         <div class="content-item-info">
                             <div class="content-item-title">Blind Date Kok Sama Mantan?!</div>
-                            <div class="content-item-type">Comedy and RomanceShort Story</div>
+                            <div class="content-item-type">Comedy and Romance Short Story</div>
                         </div>
                         <a href="https://x.com/i/status/1999881119840481467" class="content-item-link" target="_blank">Read on Twitter</a>
                     </li>
@@ -835,24 +836,14 @@
                 <h2 class="section-title"><i class="fas fa-images"></i> Gallery</h2>
                 
                 <div class="gallery-grid">
-    <!-- Foto 1 -->
-    <div class="gallery-item" style="background-image: url('grid1.png'); background-size: cover; background-position: center;"></div>
-    
-    <!-- Foto 2 -->
-    <div class="gallery-item" style="background-image: url('grid2.png'); background-size: cover; background-position: center;"></div>
-    
-    <!-- Foto 3 -->
-    <div class="gallery-item" style="background-image: url('grid3.png'); background-size: cover; background-position: center;"></div>
-    
-    <!-- Foto 4 -->
-    <div class="gallery-item" style="background-image: url('grid4.png'); background-size: cover; background-position: center;"></div>
-    
-    <!-- Foto 5 -->
-    <div class="gallery-item" style="background-image: url('grid5.png'); background-size: cover; background-position: center;"></div>
-    
-    <!-- Foto 6 -->
-    <div class="gallery-item" style="background-image: url('grid6.png'); background-size: cover; background-position: center;"></div>
-</div>
+                    <div class="gallery-item" style="background-image: url('grid1.png')"></div>
+                    <div class="gallery-item" style="background-image: url('grid2.png')"></div>
+                    <div class="gallery-item" style="background-image: url('grid3.png')"></div>
+                    <div class="gallery-item" style="background-image: url('grid4.png')"></div>
+                    <div class="gallery-item" style="background-image: url('grid5.png')"></div>
+                    <div class="gallery-item" style="background-image: url('grid6.png')"></div>
+                </div>
+            </section>
             
             <!-- TRIVIA SECTION -->
             <section id="trivia" class="content-section">
@@ -902,7 +893,7 @@
                         <div class="music-title">Swimming Pools</div>
                         <div class="music-artist">Kendrick Lamar (Cover by Lloyd)</div>
                     </div>
-                    <a href="https://open.spotify.com/track/0qBh4HDd6UrJ7jxzPojRYJ?si=db8287e03cdd4998" target="_blank">Listen on Spotify</a>
+                    <a href="https://open.spotify.com/track/0qBh4HDd6UrJ7jxzPojRYJ?si=db8287e03cdd4998" class="music-link" target="_blank">Listen on Spotify</a>
                 </div>
                 
                 <div class="music-item">
@@ -957,18 +948,25 @@
                 // Show target section with fade in
                 const target = this.getAttribute('data-target');
                 const targetSection = document.getElementById(target);
+                
+                // Add slight delay for smooth transition
                 setTimeout(() => {
-                    targetSection.classList.add('active');
-                    // Smooth scroll to top of section on mobile
-                    if (window.innerWidth < 768) {
-                        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                        // Smooth scroll to top of section on mobile
+                        if (window.innerWidth < 768) {
+                            targetSection.scrollIntoView({ 
+                                behavior: 'smooth', 
+                                block: 'start' 
+                            });
+                        }
                     }
                 }, 50);
             });
         });
         
         // Hover effects for interactive elements
-        document.querySelectorAll('button, .nav-btn, .music-link, .content-item-link').forEach(el => {
+        document.querySelectorAll('.nav-btn, .music-link, .content-item-link').forEach(el => {
             el.addEventListener('touchstart', function() {
                 this.style.transform = 'scale(0.95)';
             });
@@ -982,7 +980,18 @@
         
         // Initialize with profile section active
         document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('profile').classList.add('active');
+            const profileSection = document.getElementById('profile');
+            if (profileSection) {
+                profileSection.classList.add('active');
+            }
+            
+            // Activate first nav button
+            const firstNavBtn = document.querySelector('.nav-btn[data-target="profile"]');
+            if (firstNavBtn) {
+                firstNavBtn.classList.add('active');
+            }
+            
+            console.log('Website loaded successfully');
         });
         
         // Add hover effects for desktop
