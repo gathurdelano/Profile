@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gathur Delano Kafka | Writer & Publisher</title>
+    <title>Gathur Delano Kafka</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -243,6 +243,7 @@
             flex: 1;
             min-width: 120px;
             transition: all 0.3s ease;
+            display: block;
         }
         
         .nav-btn.active {
@@ -415,6 +416,7 @@
             font-weight: 500;
             transition: all 0.3s ease;
             margin-left: 15px;
+            display: inline-block;
         }
         
         .music-link:hover, .music-link:active {
@@ -503,6 +505,7 @@
             transition: all 0.3s ease;
             white-space: nowrap;
             margin-left: 20px;
+            display: inline-block;
         }
         
         .content-item-link:hover, .content-item-link:active {
@@ -757,28 +760,28 @@
                         <div class="content-item-info">
                             <div class="content-item-title">Hide and Lies : The Man Behind Delanosa</div>
                             <div class="content-item-type">Psychological Thriller Novel</div>
-                            <div class="content-item-year">2018</div>
+                            <div class="content-item-year">2025</div>
                         </div>
                     </li>
                     <li class="content-item">
                         <div class="content-item-info">
                             <div class="content-item-title">The Anthology of Jane</div>
-                            <div class="content-item-type">Short Story Collection</div>
-                            <div class="content-item-year">2020</div>
+                            <div class="content-item-type">Dark Romance Novel</div>
+                            <div class="content-item-year">2025</div>
                         </div>
                     </li>
                     <li class="content-item">
                         <div class="content-item-info">
                             <div class="content-item-title">The Hidden Story Vol.1</div>
-                            <div class="content-item-type">Collaboration Anthology</div>
-                            <div class="content-item-year">2021</div>
+                            <div class="content-item-type">Psychological Thriller Novel</div>
+                            <div class="content-item-year">2025</div>
                         </div>
                     </li>
                     <li class="content-item">
                         <div class="content-item-info">
                             <div class="content-item-title">The Last Order : Rowan</div>
-                            <div class="content-item-type">Dark Fantasy Series Novel</div>
-                            <div class="content-item-year">2023</div>
+                            <div class="content-item-type">Psychological Thriller Novel</div>
+                            <div class="content-item-year">2026</div>
                         </div>
                     </li>
                 </ul>
@@ -789,28 +792,28 @@
                     <li class="content-item">
                         <div class="content-item-info">
                             <div class="content-item-title">The Scandalous</div>
-                            <div class="content-item-type">Drama Short Story</div>
+                            <div class="content-item-type">Thriller Short Story</div>
                         </div>
                         <a href="https://x.com/i/status/1997873274479681599" class="content-item-link" target="_blank">Read on Twitter</a>
                     </li>
                     <li class="content-item">
                         <div class="content-item-info">
                             <div class="content-item-title">Retak : Perdebatan Malam Itu</div>
-                            <div class="content-item-type">Family Short Story</div>
+                            <div class="content-item-type">Family Drama Short Story</div>
                         </div>
                         <a href="https://x.com/i/status/2000169761188278714" class="content-item-link" target="_blank">Read on Twitter</a>
                     </li>
                     <li class="content-item">
                         <div class="content-item-info">
                             <div class="content-item-title">High by the Beach feat Cindy Lou</div>
-                            <div class="content-item-type">Romantic Short Story</div>
+                            <div class="content-item-type">Toxic Relationship Short Story</div>
                         </div>
                         <a href="https://x.com/i/status/1999453298886344899" class="content-item-link" target="_blank">Read on Twitter</a>
                     </li>
                     <li class="content-item">
                         <div class="content-item-info">
                             <div class="content-item-title">Blind Date Kok Sama Mantan?!</div>
-                            <div class="content-item-type">Comedy Short Story</div>
+                            <div class="content-item-type">Comedy and RomanceShort Story</div>
                         </div>
                         <a href="https://x.com/i/status/1999881119840481467" class="content-item-link" target="_blank">Read on Twitter</a>
                     </li>
@@ -976,13 +979,6 @@
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('profile').classList.add('active');
         });
-        
-        // Prevent text selection on tap
-        document.addEventListener('touchstart', function(e) {
-            if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.classList.contains('nav-btn')) {
-                e.preventDefault();
-            }
-        }, { passive: false });
         
         // Add hover effects for desktop
         if (window.innerWidth >= 768) {
